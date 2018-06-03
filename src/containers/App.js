@@ -52,21 +52,18 @@ class App extends Component {
 		console.log('sd', filterRobots);
 		//console.log('render');
 
-		if(robots.length === 0){ 
-			return <h1>Loading</h1>
-		}else {
-			return(
-				<div className = 'tc'>
-					<h1 className = 'f1'>RoboFriends</h1>
-					<SearchBox searchChange = {this.onSearchChange}/>
-					<Scroll>
-						<CardList robots= {filterRobots}/>
-					</Scroll>
-				</div>
-			);
-		}
+		return !robots.length ?
+		<h1>Loading</h1> :
+		(
+			<div className = 'tc'>
+				<h1 className = 'f1'>RoboFriends</h1>
+				<SearchBox searchChange = {this.onSearchChange}/>
+				<Scroll>
+					<CardList robots= {filterRobots}/>
+				</Scroll>
+			</div>
+		);
 	}
-	
 };
 
 export default App;
